@@ -91,8 +91,9 @@ module SoftDeletion
         puts "association: #{association}"
         puts "association.loaded?: #{association.loaded?}"
         association.load_target unless association.loaded?
-        puts "association.target: #{association.target}"
+        puts "association.target: #{association.target.inspect}"
         if association.target
+          puts "is this covered?"
           target = association.target
           target.class.update_counters(target.id, association.reflection.counter_cache_column => value)
         end
